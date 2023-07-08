@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survey Winners</title>
+  <style>
+    @font-face {
+      font-family: 'KG Blank Space';
+      src: url(path/to/kg-blank-space-font.woff); /* Replace with the path to the font file */
+    }
+
+    body {
+      text-align: center;
+    }
+
+    .congratulations {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .settlement-quote {
+      font-size: 40px;
+      font-weight: bold;
+      color: red;
+    }
+
+    .eligible-text {
+      font-size: 40px;
+    }
+
+    .of-text {
+      font-size: 40px;
+    }
+
+    .random-amount {
+      font-family: 'KG Blank Space', sans-serif;
+      font-size: 40px;
+      color: red;
+    }
+
+    .additional-text {
+      font-family: 'KG Blank Space', sans-serif;
+      font-size: 40px;
+    }
+
+    .additional-text span {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1><span class="congratulations">Congratulations!</span></h1>
+  <p><span class="eligible-text">You are eligible for a </span><span class="settlement-quote">settlement</span><span class="of-text"> of:</span></p>
+  <p class="random-amount"></p>
+  <p class="additional-text">Or higher depending upon the specifics of your <span>accident</span>.</p>
+
+  <script>
+    function getRandomAmount(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function shuffleNumbers() {
+      var randomAmountElement = document.querySelector('.random-amount');
+      var currentAmount = 90000; // Starting amount
+      var specifiedAmount = getRandomAmount(90000, 150000); // Replace with the desired specific amount
+      var increment = Math.ceil((specifiedAmount - currentAmount) / 30); // Adjust the increment as needed
+      var interval = setInterval(function() {
+        if (currentAmount >= specifiedAmount) {
+          clearInterval(interval);
+          randomAmountElement.textContent = "$" + specifiedAmount.toLocaleString();
+        } else {
+          currentAmount += increment;
+          randomAmountElement.textContent = "$" + currentAmount.toLocaleString();
+        }
+      }, 100); // Adjust the interval as needed
+    }
+
+    shuffleNumbers();
+  </script>
+</body>
+</html>

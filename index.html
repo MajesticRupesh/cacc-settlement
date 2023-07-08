@@ -48,7 +48,7 @@
 
     @media (max-width: 600px) {
       .congratulations {
-        font-size: 40px;
+        font-size: 64px;
       }
 
       .settlement-quote {
@@ -64,7 +64,7 @@
       }
 
       .random-amount {
-        font-size: 40px;
+        font-size: 80px;
       }
 
       .additional-text {
@@ -94,10 +94,10 @@
       var interval = setInterval(function() {
         if (currentAmount >= specifiedAmount) {
           clearInterval(interval);
-          randomAmountElement.textContent = "$" + specifiedAmount;
+          randomAmountElement.textContent = "$" + specifiedAmount.toLocaleString();
         } else {
           currentAmount += increment;
-          randomAmountElement.textContent = "$" + currentAmount;
+          randomAmountElement.textContent = "$" + currentAmount.toLocaleString();
         }
       }, 100); // Adjust the interval as needed
     }

@@ -94,10 +94,10 @@
       var interval = setInterval(function() {
         if (currentAmount >= specifiedAmount) {
           clearInterval(interval);
-          randomAmountElement.textContent = "$" + specifiedAmount.toLocaleString();
+          randomAmountElement.textContent = "$" + specifiedAmount;
         } else {
           currentAmount += increment;
-          randomAmountElement.textContent = "$" + currentAmount.toLocaleString();
+          randomAmountElement.textContent = "$" + currentAmount;
         }
       }, 100); // Adjust the interval as needed
     }
